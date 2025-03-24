@@ -1,0 +1,9 @@
+version: 2
+sources:
+- name: main
+  tables:
+  - name: crime_nypd_arrests
+    meta:
+      dagster:
+        asset_key:
+        - crime_nypd_arrests
