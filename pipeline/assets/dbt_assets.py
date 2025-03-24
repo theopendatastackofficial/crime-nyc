@@ -1,16 +1,7 @@
 from dagster import AssetExecutionContext, asset, AssetIn, MetadataValue
 from dagster_dbt import DbtCliResource, dbt_assets, DagsterDbtTranslator
-from dagster_dbt import DbtProject
-from pathlib import Path
+from pipeline.resources.dbt_project import dbt_project
 from typing import Any, Mapping, Optional
-
-# Get the root of the project (two levels up from this script)
-ROOT_DIR = Path(__file__).parent.parent.parent.resolve()
-
-# Set the path to MTA's DBT project folder
-dbt_project = DbtProject(
-    project_dir=ROOT_DIR.joinpath("transformations", "dbt"),  # The DBT project is in your_project_root/transformations/dbt
-)
 
 # Define a custom DagsterDbtTranslator
 class CustomDagsterDbtTranslator(DagsterDbtTranslator):
